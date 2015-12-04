@@ -1,0 +1,25 @@
+{# src/Fr/TicketsBundle/Resources/views/layout.html.twig #}
+
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+  Tickets - {{ parent() }}
+{% endblock %}
+ 
+{% block body %}
+
+  {# On définit un sous-titre commun à toutes les pages du bundle, par exemple #}
+  {# <h1>exemple</h1> #}
+
+  <hr>
+<div class='weel'>
+<a href="{{ path('fr_tickets_admin_open_tickets') }}">My user ticket</a>
+{#<p><a href="{{ path('fr_tickets_admin_close_tickets') }}">My close user ticket</a>#}
+<a href="{{ path('fr_tickets_admin_all_open_tickets') }}">All open user ticket</a>
+<a href="{{ path('fr_tickets_admin_all_close_tickets') }}">All close user ticket</a>
+</div>
+  {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+  {% block frtickets_body %}
+  {% endblock %}
+
+{% endblock %}

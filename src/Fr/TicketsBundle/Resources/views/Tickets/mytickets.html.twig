@@ -1,0 +1,39 @@
+{# src/Fr/TicketsBundle/Ressources/views/Tickets/mytickets.html.twig #}
+
+{% extends "::layout.html.twig" %}
+
+{% block body %}
+<h1>{{ 'My open tickets'|trans }}</h1>
+
+{# on recupere les tickets contenu dans le tableau tickets contenu dans le tableau tabtickets #}
+{% for tickets in tabtickets.tickets %}
+
+{% if tickets.etat is sameas('open') %} {# on cherche les tickets ouvert #}
+<div class="well">
+  objet: {{ tickets.objet }}
+
+<p> {{ 'content'|trans }}: {{ tickets.content }} </p>
+
+
+ 
+Reponses:
+<p></p>
+{# on recupere les reponse contenu dans le tableau reponse contenu dans le tableau tabtickets #}
+
+	    {% for reponse in tabtickets.reponse %}
+
+{% if reponse.idref == tickets.id %}
+<div class="well">
+{{ 'By'|trans }}: {{ reponse.author }} 
+<p>{{ 'content'|trans }}: {{ reponse.content }} </p>
+</div>
+{% endif %}
+{% endfor %}
+<a href="{{ path('fr_reponse_user_add_reponse', {'id': tickets.id}) }}">set reponse</a>
+<a href="{{ path('fr_tickets_etat_tickets', {'id': tickets.id}) }}">close ticket</a>
+</div>
+{% endif %}
+
+{% endfor %}
+
+{% endblock %}

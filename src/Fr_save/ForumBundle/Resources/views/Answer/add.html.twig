@@ -1,0 +1,19 @@
+{# src/Fr/ForumBundle/Resources/views/Threads/add.html.twig #}
+
+
+
+{% extends "FrForumBundle::layout.html.twig" %}
+
+{% block title %}
+  Answer - {{ parent() }}
+{% endblock %}
+
+{% block frforum_body %}
+
+  <h2>Answer</h2>
+  
+
+  {{ include("FrForumBundle:Answer:form.html.twig") }}
+
+ 
+{% endblock %}

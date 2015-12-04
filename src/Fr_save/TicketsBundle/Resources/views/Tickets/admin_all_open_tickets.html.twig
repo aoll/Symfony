@@ -1,0 +1,30 @@
+{# src/Fr/TicketsBundle/Ressources/views/Tickets/adminallopentickets.html.twig #}
+
+{% extends "FrTicketsBundle::layout.html.twig" %}
+
+{% block frtickets_body %}
+<h1>All open tickets</h1>
+
+
+{% for tickets in tickets %}
+
+{% if tickets.etat is sameas('open') %} 
+{% if tickets.destinataire is sameas('N;') %} 
+<div class="well">
+  
+author: {{ tickets.author }} 
+  
+<p> objet: {{ tickets.objet }} </p>
+
+<p> content: {{ tickets.content }} </p>
+
+<a href="{{ path('fr_tickets_admin_destinataire', {'id': tickets.id}) }}">atribute ticket</a>
+
+<a href="{{ path('fr_tickets_admin_close', {'id': tickets.id}) }}">close ticket</a>
+</div>
+{% endif %}
+{% endif %}
+{% endfor %}
+
+
+{% endblock %}

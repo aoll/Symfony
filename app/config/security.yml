@@ -1,0 +1,44 @@
+security:
+    encoders:
+        Fr\UserBundle\entity\User: sha512
+
+    role_hierarchy:
+        ROLE_ADMIN:       [ROLE_AUTEUR, ROLE_MODERATEUR]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        main:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        prod:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            pattern:        ^/
+            anonymous:      true
+            provider:       main
+            form_login:
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
+            logout:
+                path:       fos_user_security_logout
+                target:     /fr/home
+            remember_me:
+                key:        %secret% # %secret% est un paramètre de parameters.yml
+
+    access_control:
+        - { path: /admin, roles: ROLE_ADMIN }
+        - { path: /tickets, roles: ROLE_USER }
+        - { path: /forum, roles: ROLE_USER }
+      
+       # - { path: /forum/categorie_add, roles: ROLE_ADMIN }
+       # - { path: /fr/forum/categorie_delete, roles: ROLE_ADMIN }
+       # - { path: /categorie_edit, roles: ROLE_ADMIN }
+       # - { path: /sous_categorie_edit, roles: ROLE_ADMIN }
+       # - { path: /sous_categorie_add, roles: ROLE_ADMIN }
+       # - { path: /sous_categorie_delete, roles: ROLE_ADMIN }
+       # - { path: /threads_delete, roles: ROLE_ADMIN }
+       # - { path: /threads_edit, roles: ROLE_ADMIN }
+       # - { path: /answer_delete, roles: ROLE_ADMIN }     
+       # - { path: /commentaire_delete, roles: ROLE_ADMIN }  

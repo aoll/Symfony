@@ -1,0 +1,22 @@
+{# src/Fr/ForumBundle/Resources/views/Categorie/add.html.twig #}
+
+
+
+{% extends "FrForumBundle::layout.html.twig" %}
+
+{% block title %}
+  {{  'You add a categorie'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block frforum_body %}
+
+  <h2>{{  'You add a categorie'|trans }}</h2>
+  
+
+  {{ include("FrForumBundle:Categorie:form.html.twig") }}
+
+  <p>
+  {{  'You add a categorie'|trans }}
+  </p>
+
+{% endblock %}

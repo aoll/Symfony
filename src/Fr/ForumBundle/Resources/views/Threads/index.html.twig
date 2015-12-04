@@ -1,0 +1,26 @@
+{# src/Fr/ForumBundle/Resources/views/SousCategorie/index.html.twig #}
+
+{% extends "FrForumBundle::layout.html.twig" %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+{% endblock %}
+
+{% block frforum_body %}
+
+  <h2>Forum</h2>
+
+ 
+
+{# on affiche le lien :ajouter une annonce que si il a les droits  #}
+          {% if is_granted('ROLE_AUTEUR') %}
+  <p>
+    <a href="{{ path('fr_forum_sous_categorie_add') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      Ajouter une souscategorie
+    </a>
+ {#   <a href="{{ path('fr_forum_sous_categorie_delete', {'id': souscategorie.id}) }}" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>Supprimer l'annonce</a> #}
+  </p>
+  {% endif %}
+
+{% endblock %}

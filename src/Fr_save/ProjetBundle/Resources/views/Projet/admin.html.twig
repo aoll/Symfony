@@ -1,0 +1,64 @@
+{# src/Fr/ProjetBundle/Resources/views/Projet/admin.html.twig #}
+
+{% extends "FrProjetBundle::layout.html.twig" %}
+
+{% block title %}
+  Admin - {{ parent() }}
+{% endblock %}
+
+{% block frprojet_body %}
+
+  <h2>Admin</h2>
+
+  {% for user in user %}
+  <div class="well">
+   {{ 'name'|trans }}: {{ user.username }}
+   email: {{ user.email }}
+  
+   {% for role in user.roles %}
+   {% if role is sameas('ROLE_ADMIN') %}
+      {{ role }}
+   {% endif %}
+   {% endfor %}
+
+
+    {% for role in user.roles %}
+	{%  if loop.index == 1 %}
+    {% if role is sameas('ROLE_ADMIN') %}
+    {% else %}
+    <a href="{{ path('fr_projet_add_roles', {'id': user.id}) }}"class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      {{ 'Upgrade Admin'|trans }}</a>
+   {% endif %}
+{% endif %}
+    {% endfor %}
+
+
+
+
+
+    {% for role in user.roles %}
+	{%  if loop.index == 1 %}
+    {% if role is sameas('ROLE_ADMIN') %}
+
+   {% if is_granted('ROLE_SUPER_ADMIN') %}
+    <a href="{{ path('fr_projet_delete_user', {'id': user.id}) }}"class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+      {{ 'Delete User'|trans }}</a>
+    {% endif %}
+
+
+    {% else %}
+    <a href="{{ path('fr_projet_delete_user', {'id': user.id}) }}"class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+      {{ 'Delete User'|trans }}</a>
+    <a href="{{ path('fr_log_log_as', {'id': user.id}) }}"class="btn btn-danger">
+      <i class="glyphicon glyphicon-edit"></i>
+      {{ 'Log as User'|trans }}</a>
+    {% endif %}
+{% endif %}
+    {% endfor %}
+
+  </div>
+{% endfor %}  
+{% endblock %}

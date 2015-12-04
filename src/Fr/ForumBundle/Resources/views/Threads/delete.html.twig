@@ -1,0 +1,29 @@
+{# src/Fr/ForumBundle/Resources/views/Threads/delete.html.twig #}
+
+{% extends "FrForumBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ 'Delete a threads'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block frforum_body %}
+
+  <h2>{{ 'Delete a threads'|trans }}</h2>
+
+  <p>
+   {{ 'Delete a threads'|trans }} "{{ threads.title }}" ?
+  </p>
+
+  {# On met l'id de l'annonce dans la route de l'action du formulaire #}
+  <form action="{{ path('fr_forum_threads_delete', {'id': threads.id}) }}" method="post">
+    <a href="{{ path('fr_forum_threads_view', {'id': threads.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      {{ 'Back'|trans }}
+    </a>
+    {# Ici j'ai écrit le bouton de soumission à la main #}
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {# Ceci va générer le champ CSRF #}
+    {{ form_rest(form) }}
+  </form>
+
+{% endblock %}

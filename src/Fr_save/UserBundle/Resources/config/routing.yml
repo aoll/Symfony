@@ -1,0 +1,11 @@
+fr_user_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: FrUserBundle:Default:index }
+
+fos_user_registration_confirmed:
+    path:	/register/confirmed
+    defaults:	{ _controller: FrProjetBundle:Projet:index }
+
+fos_user_change_password:
+    path:	/profile
+    defaults:	{ _controller: FrProjetBundle:Projet:index }

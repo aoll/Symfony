@@ -1,0 +1,55 @@
+{# src/Fr/TicketsBundle/Ressources/views/Tickets/my_admin__tickets.html.twig #}
+
+{% extends "FrTicketsBundle::layout.html.twig" %}
+
+{% block frtickets_body %}
+<h1>{{ 'My admin tickets'|trans }}</h1>
+
+
+{# on recuprere tabstickets qui contient deux array tickets et reponses #}
+
+{% for tickets in tabtickets.tickets %}
+
+
+<div class="well">
+  
+{{ 'author'|trans }}: {{ tickets.author }} 
+  
+<p> objet: {{ tickets.objet }} </p>
+
+<p> {{ 'content'|trans }}: {{ tickets.content }} </p>
+
+<p> etat: {{ tickets.etat }} </p>
+
+
+
+{% for reponse in tabtickets.reponse %}
+
+{# on garde seulement les reponses dont id_ref correspond a id du ticket #} 
+
+{% if reponse.idref == tickets.id %}
+<div class="well">
+{{ 'By'|trans }}: {{ reponse.author }}
+<p> content: {{ reponse.content }} </p>
+</div>
+{% endif %}
+
+
+{% endfor %}
+
+
+
+
+{% if tickets.etat is sameas('close') %}
+<a href="{{ path('fr_tickets_admin_open', {'id': tickets.id}) }}">{{ 'open  ticket'|trans }}</a>
+{% else %}
+
+<a href="{{ path('fr_reponse_admin_add_reponse', {'id': tickets.id}) }}">{{ 'set reponse'|trans }}</a>
+
+<p><a href="{{ path('fr_tickets_admin_close', {'id': tickets.id}) }}">{{ 'close  ticket'|trans }}</a></p>
+{% endif %}
+</div>
+{% endfor %}
+
+
+{% endblock %}

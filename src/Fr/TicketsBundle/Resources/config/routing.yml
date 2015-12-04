@@ -1,0 +1,61 @@
+fr_tickets_homepage:
+    path:     /
+    defaults: { _controller: FrTicketsBundle:Tickets:index }
+
+fr_tickets_new_tickets:
+    path:	/new_tickets
+    defaults:	{ _controller: FrTicketsBundle:Tickets:newtickets }
+
+fr_tickets_my_tickets:
+    path:	/my_tickets
+    defaults:	{ _controller: FrTicketsBundle:Tickets:mytickets }
+
+fr_tickets_close_tickets:
+    path:	/closetickets
+    defaults:	{ _controller: FrTicketsBundle:Tickets:closetickets }
+
+fr_tickets_etat_tickets:
+    path:	/etat_tickets/{id}
+    defaults:	{ _controller: FrTicketsBundle:Tickets:etattickets }
+    requirements:
+        id: \d+
+
+fr_tickets_open_tickets:
+    path:	/open_tickets/{id}
+    defaults:	{ _controller: FrTicketsBundle:Tickets:opentickets }
+    requirements:
+        id: \d+
+
+fr_tickets_spool:
+     path:	/admin/spool
+     defaults:	{ _controller: FrTicketsBundle:Tickets:spool }
+
+fr_tickets_admin_open_tickets:
+     path:	/admin/spool/admin_tickets
+     defaults:	{ _controller: FrTicketsBundle:Tickets:adminopentickets }
+
+fr_tickets_admin_all_open_tickets:
+     path:	/admin/spool/admin_all_open_tickets
+     defaults:	{ _controller: FrTicketsBundle:Tickets:admin_all_open_tickets }
+
+fr_tickets_admin_all_close_tickets:
+     path:	/admin/spool/admin_all_close_tickets
+     defaults:	{ _controller: FrTicketsBundle:Tickets:admin_all_close_tickets }
+
+fr_tickets_admin_destinataire:
+     path:	/admin/spool/admin_destinataire/{id}
+     defaults:	{ _controller: FrTicketsBundle:Tickets:admin_destinataire }
+     requirements:
+        id: \d+
+
+fr_tickets_admin_close:
+    path:	/admin/admin_close/{id}
+    defaults:	{ _controller: FrTicketsBundle:Tickets:admin_close }
+    requirements:
+        id: \d+
+
+fr_tickets_admin_open:
+    path:	/admin/admin_open/{id}
+    defaults:	{ _controller: FrTicketsBundle:Tickets:admin_open }
+    requirements:
+        id: \d+

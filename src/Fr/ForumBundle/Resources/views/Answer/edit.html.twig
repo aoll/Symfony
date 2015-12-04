@@ -1,0 +1,27 @@
+{# src/Fr/FrodnazaBundle/Resources/views/Threads/edit.html.twig #}
+
+{% extends "FrForumBundle::layout.html.twig" %}
+
+{% block title %}
+  Modifier une threads - {{ parent() }}
+{% endblock %}
+
+{% block frforum_body %}
+
+  <h2>Modifier une threads</h2>
+
+  {{ include("FrForumBundle:Threads:form.html.twig") }}
+
+  <p>
+    Vous éditez une threads déjà existante, merci de ne pas changer
+    l'esprit générale de la threads déjà publiée.
+  </p>
+
+  <p>
+    <a href="{{ path('fr_forum_threads_view', {'id': threads.id}) }}" class="btn btn-default"> 
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour à threads
+    </a>
+  </p>
+
+{% endblock %}

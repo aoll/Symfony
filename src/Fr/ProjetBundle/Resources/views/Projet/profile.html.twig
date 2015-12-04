@@ -1,0 +1,37 @@
+{# src/fr/ProjetBundle/Resources/views/Advert/profile.html.twig #}
+
+{% extends "FrProjetBundle::layout.html.twig" %}
+
+{% block title %}
+ Profile - {{ parent() }}
+{% endblock %}
+
+{% block frprojet_body %}
+
+  <h2>Profile</h2>
+
+  <div class="well">
+   {{ 'name'|trans }}: {{ user.username }}
+  </div>
+  
+  <div class="well">
+    email: {{ user.email }}
+  </div>
+ 
+  <div class="well">
+    <a href="{{ path('fr_projet_set_email', {'id' : user.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      {{ 'Set email'|trans }}
+    </a>
+  
+    <a href="{{ path('fos_user_change_password') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      {{ 'Set password'|trans }}</a>
+
+    <a href="{{ path('fr_projet_delete_user', {'id' : user.id}) }}" class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+      {{ 'Delete profile'|trans }}</a>
+  </div>
+
+
+{% endblock %}

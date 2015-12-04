@@ -1,0 +1,19 @@
+{# src/Fr/ForumBundle/Resources/views/Commentaire/add.html.twig #}
+
+
+
+{% extends "FrForumBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ 'Comment'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block frforum_body %}
+
+  <h2>{{ 'Coment'|trans }}</h2>
+  
+
+  {{ include("FrForumBundle:Commentaire:form.html.twig") }}
+
+ 
+{% endblock %}

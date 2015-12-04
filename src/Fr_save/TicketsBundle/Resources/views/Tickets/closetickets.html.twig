@@ -1,0 +1,23 @@
+{# src/Fr/TicketsBundle/Ressources/views/Tickets/closetickets.html.twig #}
+
+{% extends "FrTicketsBundle::layout.html.twig" %}
+
+{% block frtickets_body %}
+<h1>My close tickets</h1>
+
+
+{% for tickets in tickets %}
+
+{% if tickets.etat is sameas('close') %} 
+<div class="well">
+  objet: {{ tickets.objet }}
+
+<p> content: {{ tickets.content }} </p>
+
+<a href="{{ path('fr_tickets_open_tickets', {'id': tickets.id}) }}">Open ticket</a>
+</div>
+{% endif %}
+{% endfor %}
+
+
+{% endblock %}

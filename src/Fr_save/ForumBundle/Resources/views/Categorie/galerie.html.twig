@@ -1,0 +1,49 @@
+{# src/BI/BiodanzaBundle/Resources/views/Advert/galerie.html.twig #}
+
+{% extends "BIBiodanzaBundle::layout.html.twig" %}
+
+{% block title %}
+  Galerie - {{ parent() }}
+{% endblock %}
+
+
+
+{% block bibiodanza_body %}
+{# On vérifie qu'une image soit bien associée à l'annonce #}
+<h1>Galerie</h1>
+<p>Vous trouverez ici toutes sortes d'article de photos ou videos sur des themes divers et varies</p>
+{% for advert in advert %}
+<h2>{{ advert.title }}</h2>
+{#{% if advert.id is not null %}#}
+{% if advert.image is not null %}
+  <img 
+  src="{{ asset(advert.image.webPath) }}"
+  alt="{{ advert.image.alt }}">
+{% endif %}
+
+
+ {# <i>Par {{ advert.author }}, #}<i>le {{ advert.date|date('d/m/Y') }}</i>
+
+  <div class="well">
+    {{ advert.content }}
+  </div>
+   {# on affiche le lien :ajouter une annonce que si il a les droits  #}
+          {% if is_granted('ROLE_AUTEUR') %}
+   <p>
+    <a href="{{ path('bi_biodanza_edit', {'id': advert.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      Modifier l'annonce
+    </a>
+   <a href="{{ path('bi_biodanza_delete', {'id': advert.id}) }}" class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+      Supprimer l'annonce
+    </a>
+  </p>
+  {% endif %}
+
+
+ {# {% endif %} #}
+{% endfor %}
+ 
+
+{% endblock %}

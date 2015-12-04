@@ -1,0 +1,63 @@
+fr_projet_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: FrProjetBundle:Default:index }
+
+fr_projet_home:
+    path:	/home
+    defaults:	{ _controller: FrProjetBundle:Projet:index }
+
+fr_projet_logout:
+    path:	/logout
+    defaults:	{ _controller: FrProjetBundle:Projet:logout }
+
+fr_projet_login:
+    path:	/login
+    defaults:	{ _controller: FrProjetBundle:Projet:login }
+
+fr_projet_registed:
+    path:	/registed
+    defaults:	{ _controller: FrProjetBundle:Projet:registed }
+
+
+
+fr_projet_profile:
+    path:	/profile
+    defaults:   { _controller: FrProjetBundle:Projet:profile }
+
+fr_projet_admin:
+    path:	/admin
+    defaults:	{ _controller: FrProjetBundle:Projet:admin }
+
+fr_projet_delete_user:
+    path:	/admin/delete_user/{id}
+    defaults:	{ _controller: FrProjetBundle:Projet:delete }
+    requirements:
+        id: \d+
+
+fr_projet_set_email:
+    path:	/set_email/{id}
+    defaults:	{ _controller: FrProjetBundle:Projet:setmail }
+    requirements:
+        id: \d+
+
+fr_projet_register:
+    path:       /register/confirmed
+    defaults:   { _controller: FrProjetBundle:Projet:index }
+
+fr_projet_home:
+    path:       /home
+    defaults:   { _controller: FrProjetBundle:Projet:language }
+
+fr_projet_mail:
+    path:	/projet/mail
+    defaults:	{ _controller: FrProjetBundle:Projet:mail }
+
+fr_projet_add_roles:
+    path:	/admin/add_roles/{id}
+    defaults:	{ _controller: FrProjetBundle:Projet:addroles }
+    requirements:
+        id: \d+
+
+fr_projet_setLocale:
+    path:	/setLocale/{language}
+    defaults:	{ _controller: FrProjetBundle:Projet:setLocale }

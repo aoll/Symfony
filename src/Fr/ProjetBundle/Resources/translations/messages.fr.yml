@@ -1,0 +1,16 @@
+# src/Fr/ProjetBundle/Ressources/translations/messages.fr.yml
+
+Hello: Bonjour
+add roles: ajouter role
+save the upgrade?: confirmer le changement de role ?
+name: nom
+Upgrade Admin: Evolution Admin
+Delete User: Supprimer Utilisateur
+Home: Acceuil
+Set email: Changer adresse mail
+Set password: Changer mot de passe
+Check your new email for validate your inscription: GG check tes emails pour terminer l'inscription
+Password is set: Mot de passe changé
+back to the profile: retour au profile
+Delete profile: Supprimer profile
+Add user: Ajouter utilisateur

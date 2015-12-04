@@ -1,0 +1,97 @@
+{# app/Resources/views/layout.html.twig #}
+ 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% block title %}Fr projet{% endblock %}</title>
+
+  {% block stylesheets %}
+    {# On charge le CSS de bootstrap depuis le site directement #}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> 
+  {#On charge le css depuis le vendor #}
+{#  {% stylesheets
+  '%kernel.root_dir%/../vendor/twitter/bootstrap/less/bootstrap.less'
+  '%kernel.root_dir%/../vendor/twitter/bootstrap/less/responsive.less'
+  'bundles/acmetwig/css/acme-bootstrap.css'
+  filter='lessphp,cssrewrite' 
+  %} 
+  <link rel="stylesheet" href="{{ asset_url }}" />
+  {% endstylesheets %} #}   
+  {% endblock %}
+</head>
+
+<body>
+  <div class="container">
+    <div id="header" class="jumbotron">
+      <h1>Projet</h1>
+<a href="{{ path('fr_projet_setLocale', {'language': 'fr'}) }}">FR</a>
+<a href="{{ path('fr_projet_setLocale', {'language': 'en'}) }}">EN</a>
+<p><a href="{{ path('fr_log_log_back') }}">Log Back</a></p> 
+home
+   </div>
+
+    <section class="row" margin: 80px 0 180px; > 
+    <div class="container" margin: 80px 0 180px; >
+       <ul class="nav nav-pills nav-stacked">
+ 
+          <a href="{{ path('fr_projet_home') }}">Home</a>
+	  {% if is_granted('IS_AUTHENTICATED_REMEMBERED') == false  %}
+	  {#<a href="{{ path('fr_projet_login') }}">login</a>#} 
+	  <a href="{{ path('fos_user_security_login') }}">login</a> 
+	  <a href="{{ path('fos_user_registration_register') }}">register</a>
+	  {% endif %}
+     {# on affiche le lien :ajouter une annonce que si il a les droits  #}
+
+          {% if is_granted('ROLE_ADMIN') %}     
+	  <a href="{{ path('fr_projet_admin') }}">admin</a>
+	  <a href="{{ path('fr_tickets_spool') }}">spool</a>
+	   <a href="{{ path('fr_log_view_all') }}">log</a>
+                 {% endif %} 
+
+          {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}     
+	  <a href="{{ path('fr_forum_home') }}">forum</a>
+	  <a href="{{ path('fr_tickets_homepage') }}">Tickets</a>
+	  <a href="{{ path('fr_projet_profile') }}">profile</a>
+	  <a href="{{ path('fr_projet_logout') }}">logout</a>
+{#	  <a href="{{ path('fos_user_security_logout') }}">logout</a> #}
+          {% endif %} 
+    </div>
+  </section> 
+
+   {#   <div id="menu" class="col-md-3"> #}
+       {# <h4>Dernières annonces</h4>#}
+       {# <ul class="nav nav-pills nav-stacked">#}
+         {# on affiche le lien :ajouter une annonce que si il a les droits  #}
+         {# {% if is_granted('ROLE_AUTEUR') %}#}
+        {#  <li><a href="{{ path('bi_biodanza_add') }}">Ajouter une annonce</a></li> #}
+ {#           {% endif %}#}
+	 
+   {# </div> #}
+
+       {# {{ render(controller("BIBiodanzaBundle:Advert:menu", {'limit': 3})) }} #}
+ 
+      <div id="content" class="col-md-9">
+        {% block body %}
+        {% endblock %}
+      </div>
+    </div>
+
+    <hr>
+
+    <footer>
+      <p>The sky's the limit © {{ 'now'|date('Y') }} and beyond.</p>
+    
+    </footer>
+  </div>
+
+  {% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  {% endblock %}
+
+</body>
+</html>

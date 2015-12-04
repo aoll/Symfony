@@ -1,0 +1,19 @@
+{# src/fr/ProjetBundle/Resources/views/Projet/add_roles.html.twig #}
+
+{% extends "FrProjetBundle::layout.html.twig" %}
+
+{% block title %}
+{{ 'add roles'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block frprojet_body %}
+
+  <h2>admin</h2>
+
+{{ 'save the upgrade?'|trans }}
+
+{{ include("FrProjetBundle:Projet:form.html.twig") }}
+
+ 
+
+{% endblock %}

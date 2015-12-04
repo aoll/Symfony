@@ -1,0 +1,24 @@
+{# src/Fr/ProjetBundle/Resources/views/Projet/log_view_all.html.twig #}
+
+{% extends "FrProjetBundle::layout.html.twig" %}
+
+{% block title %}
+  Log - {{ parent() }}
+{% endblock %}
+
+{% block frprojet_body %}
+
+  <h2>Log</h2>
+
+  {% for log in log %}
+<p>  <div class="well">
+   {{ 'name'|trans }}: {{ log.username }}
+   action: {{ log.action }}
+  url: {{ log.url }}
+   date: {{ log.date|date() }}
+   </div>
+</p>
+    {% endfor %}
+
+
+{% endblock %}

@@ -1,0 +1,88 @@
+{# src/Fr/ForumBundle/Resources/view/Threads/view.html.twig #}
+
+
+
+{% extends "FrForumBundle::layout.html.twig" %}
+
+{% block title %}
+  Threads - {{ parent() }}
+{% endblock %}
+
+{% block frforum_body %}
+
+
+
+<div class="well">
+<h2>{{ tab.threads.title }}</h2>
+  <i>Par {{ tab.threads.author }}, le {{ tab.threads.date|date('d/m/Y') }}</i>
+
+  <p> {{ tab.threads.content }} </p>
+</div>
+
+{% for answer in tab.answer %}
+<div class="well">
+
+<i>Par {{ answer.author }}, le {{ answer.date|date('d/m/Y') }}</i>
+
+<p> {{ answer.content }} </p>
+
+com:
+{% for commentaire in tab.commentaire %}
+
+{% if commentaire.idanswer == answer.id %}
+
+<p>{{ commentaire.content }}</p>
+
+<p> <a href="{{ path('fr_forum_commentaire_delete', {'id': commentaire.id}) }}" class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+</p>
+
+
+{% endif %}
+
+{% endfor %}
+
+<p> <a href="{{ path('fr_forum_commentaire_add', {'id': answer.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      {{ 'Add comment'|trans }}
+    </a>
+</p>
+
+<p> <a href="{{ path('fr_forum_answer_delete', {'id': answer.id}) }}" class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+     {{ 'Delete'|trans }}
+    </a>
+</p>
+
+</div>
+{% endfor %}
+
+
+  <p>
+    {% if tab.threads.idsouscategorie == null %}
+    <a href="{{ path('fr_forum_categorie_view', {'id': tab.threads.idcategorie}) }}" class="btn btn-default">
+    {% else %}
+      <a href="{{ path('fr_forum_sous_categorie_view', {'id': tab.threads.idsouscategorie}) }}" class="btn btn-default">
+      {% endif %}
+	<i class="glyphicon glyphicon-chevron-left"></i>
+      {{ 'Back'|trans }}
+    </a>
+
+    <a href="{{ path('fr_forum_answer_add', {'id': tab.threads.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      {{ 'Answer'|trans }}
+    </a>
+
+    <a href="{{ path('fr_forum_threads_edit', {'id': tab.threads.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      {{ 'Edit a threads'|trans }}
+    </a>
+
+    <a href="{{ path('fr_forum_threads_delete', {'id': tab.threads.id}) }}" class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+ {{ 'Delete a threads'|trans }}
+    </a>
+  </p>
+
+{% endblock %}

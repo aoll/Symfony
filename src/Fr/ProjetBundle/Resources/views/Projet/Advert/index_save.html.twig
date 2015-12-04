@@ -1,0 +1,27 @@
+{# src/BI/BiodanzaBundle/Resources/views/Advert/index.html.twig #}
+
+{% extends "BIBiodanzaBundle::layout.html.twig" %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+{% endblock %}
+
+{% block bibiodanza_body %}
+
+  <h2>Liste des annonces</h2>
+
+  <ul>
+    {% for advert in advert %}
+      <li>
+        <a href="{{ path('bi_biodanza_view', {'id': advert.id}) }}">
+          {{ advert.title }}
+        </a>
+        par {{ advert.author }},
+        le {{ advert.date|date('d/m/Y') }}
+      </li>
+    {% else %}
+      <li>Pas (encore !) d'annonces</li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

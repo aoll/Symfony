@@ -1,0 +1,22 @@
+{# src/Fr/FrodnazaBundle/Resources/views/Categorie/edit.html.twig #}
+
+{% extends "FrForumBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ 'Edit a categorie'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block frforum_body %}
+
+  <h2>{{ 'Edit a categorie'|trans }}</h2>
+
+  {{ include("FrForumBundle:Categorie:form.html.twig") }}
+
+  <p>
+    <a href="{{ path('fr_forum_categorie_view', {'id': categorie.id}) }}" class="btn btn-default"> 
+      <i class="glyphicon glyphicon-chevron-left"></i>
+     {{ 'Back'|trans }}
+    </a>
+  </p>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+# src/Fr/ProjetBundle/Ressources/translations/messages.fr.yml
+
+Hello: Bonjour
+add roles: ajouter role
+save the upgrade?: confirmer le changement de role ?
+name: nom
+Upgrade Admin: Evolution Admin
+Delete User: Supprimer Utilisateur
+Home: Acceuil
+Set email: Changer adresse mail
+Set password: Changer mot de passe
+Check your new email for validate your inscription: GG check tes emails pour terminer l'inscription
+Password is set: Mot de passe changé
+back to the profile: retour au profile
+Delete profile: Supprimer profile
+You add a categorie: Vous cree une categorie
+Delete a categorie: Supprimer une categorie
+Delete: Supprimmer
+Back: Retour
+Edit a categorie: Modifier une categorie
+Categorie Form: Formulaire de Categorie
+Add a categorie: ajouter une categorie
+By: Par
+Add a threads: Ajouter un threads
+Add a lower categorie: Ajouter une sous categorie
+You add a lower categorie: Vous ajouter une sous categorie
+Edit a lower categorie: Modifier une sous categorie
+Delete a lower categorie: Supprimer une sous categorie
+Lower categorie Form: Formulaire de Sous categorie
+Lower categorie: Sous Categorie
+You add a threads: Vous ajouter un threads
+Delete a threads: Supprimer un threads
+Edit a threads: Modifier un threads
+Threads Form: Formulaire de Threads
+Title: Titre
+Add a comment: Ajouter un commentaire
+Answer: Reponse
+Coment: Commentaire

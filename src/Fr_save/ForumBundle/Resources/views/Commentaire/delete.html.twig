@@ -1,0 +1,27 @@
+{# src/Fr/ForumBundle/Resources/views/Answer/delete.html.twig #}
+
+{% extends "FrForumBundle::layout.html.twig" %}
+
+{% block title %}
+  Delete - {{ parent() }}
+{% endblock %}
+
+{% block frforum_body %}
+
+  <h2>Delete</h2>
+
+  
+
+  {# On met l'id de l'annonce dans la route de l'action du formulaire #}
+  <form action="{{ path('fr_forum_commentaire_delete', {'id': commentaire.id}) }}" method="post">
+    <a href="{{ path('fr_forum_threads_view', {'id': commentaire.idThreads}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Back
+    </a>
+    {# Ici j'ai écrit le bouton de soumission à la main #}
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {# Ceci va générer le champ CSRF #}
+    {{ form_rest(form) }}
+  </form>
+
+{% endblock %}

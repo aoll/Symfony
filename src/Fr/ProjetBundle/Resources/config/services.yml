@@ -1,0 +1,15 @@
+services:
+#    fr_projet.example:
+#        class: Fr\ProjetBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    FrProjetBundle.locale_listener:
+        class: Fr\ProjetBundle\EventListener\LocaleListener
+        arguments: ["%kernel.default_locale%"]
+        tags:
+            - { name: kernel.event_subscriber }
+
+    fr_projet.save:
+        class: Fr\ProjetBundle\Save\FrSave
+        arguments: [ @doctrine.orm.entity_manager, @request ]
+        scope: request

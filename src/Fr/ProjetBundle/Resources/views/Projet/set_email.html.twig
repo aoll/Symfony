@@ -1,0 +1,32 @@
+{# src/fr/ProjetBundle/Resources/views/Projet/set_email.html.twig #}
+
+{% extends "FrProjetBundle::layout.html.twig" %}
+
+{% block title %}
+ {{ 'Set email'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block frprojet_body %}
+
+  <h2>Profile</h2>
+
+{{ include("FrProjetBundle:Projet:form.html.twig") }}
+{#
+  <div class="well">
+   {{ 'name'|trans: {{ user.username }}
+  </div>
+  <div class="well">
+   email: {{ user.email }}
+   <a href="{{ path('fr_projet_set_email', {'id' : user.id}) }}" class="btn btn-default">
+     <i class="glyphicon glyphicon-edit"></i>
+     {{ 'Set email'|trans }}
+     </a>
+  </div>
+  #}
+ 
+ 
+
+
+
+
+{% endblock %}

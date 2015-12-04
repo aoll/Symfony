@@ -1,0 +1,49 @@
+{# src/Fr/ForumBundle/Resources/view/Threads/view.html.twig #}
+
+
+
+{% extends "FrForumBundle::layout.html.twig" %}
+
+{% block title %}
+  Lecture d'une threads - {{ parent() }}
+{% endblock %}
+
+{% block frforum_body %}
+
+
+
+
+<h2>{{ tab.threads.title }}</h2>
+  <i>Par {{ tab.threads.author }}, le {{ tab.threads.date|date('d/m/Y') }}</i>
+
+  <p> {{ tab.threads.content }} </p>
+
+
+
+  <p>
+    {% if tab.threads.idsouscategorie == null %}
+    <a href="{{ path('fr_forum_categorie_view', {'id': tab.threads.idcategorie}) }}" class="btn btn-default">
+    {% else %}
+      <a href="{{ path('fr_forum_sous_categorie_view', {'id': tab.threads.idsouscategorie}) }}" class="btn btn-default">
+      {% endif %}
+	<i class="glyphicon glyphicon-chevron-left"></i>
+      Retour à la liste
+    </a>
+
+    <a href="{{ path('fr_forum_answer_add', {'id': tab.threads.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      Answer
+    </a>
+
+    <a href="{{ path('fr_forum_threads_edit', {'id': tab.threads.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      Modifier l'threads
+    </a>
+
+    <a href="{{ path('fr_forum_threads_delete', {'id': tab.threads.id}) }}" class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+      Supprimer l'threads
+    </a>
+  </p>
+
+{% endblock %}

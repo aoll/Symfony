@@ -1,0 +1,17 @@
+fr_log_homepage:
+    path:     /log
+    defaults: { _controller: FrLogBundle:Log:add }
+
+fr_log_view_all:
+    path:     /admin/log
+    defaults: { _controller: FrLogBundle:Log:viewall }
+
+fr_log_log_as:
+    path:     /admin/log_as/{id}
+    defaults: { _controller: FrLogBundle:Logas:logas }
+    requirements:
+        id: \d+
+
+fr_log_log_back:
+    path:     /log_back
+    defaults: { _controller: FrLogBundle:Logas:logback }

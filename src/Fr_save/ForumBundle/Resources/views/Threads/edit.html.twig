@@ -1,0 +1,26 @@
+{# src/Fr/FrodnazaBundle/Resources/views/Threads/edit.html.twig #}
+
+{% extends "FrForumBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ 'Edit a threads'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block frforum_body %}
+
+  <h2>{{ 'Edit a threads'|trans }}</h2>
+
+  {{ include("FrForumBundle:Threads:form.html.twig") }}
+
+  <p>
+    {{ 'Edit a threads'|trans }}
+  </p>
+
+  <p>
+    <a href="{{ path('fr_forum_threads_view', {'id': threads.id}) }}" class="btn btn-default"> 
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      {{ 'Back'|tans }}
+    </a>
+  </p>
+
+{% endblock %}

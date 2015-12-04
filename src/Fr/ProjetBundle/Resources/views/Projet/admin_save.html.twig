@@ -1,0 +1,40 @@
+{# src/Fr/ProjetBundle/Resources/views/Projet/admin.html.twig #}
+
+{% extends "FrProjetBundle::layout.html.twig" %}
+
+{% block title %}
+  Admin - {{ parent() }}
+{% endblock %}
+
+{% block frprojet_body %}
+
+  <h2>Admin</h2>
+
+  {% for user in user %}
+  <div class="well">
+   username: {{ user.username }}
+   user_email: {{ user.email }}
+   {% for role in user.roles %}
+         {{ role }}
+   {% endfor %}
+    <a href="{{ path('fr_projet_add_roles', {'id': user.id}) }}"class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      Upgrade Admin</a>
+   {% if is_granted('ROLE_SUPER_ADMIN') %}
+    <a href="{{ path('fr_projet_delete_user', {'id': user.id}) }}"class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+      Delete User</a>
+    {% endif %}
+    {% for role in user.roles %}
+    {% if role is sameas('ROLE_ADMIN') %}
+	{%  if loop.index == 1 %}
+    <a href="{{ path('fr_projet_delete_user', {'id': user.id}) }}"class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+      Delete User</a>
+    {% endif %}
+{% endif %}
+    {% endfor %}
+
+  </div>
+{% endfor %}  
+{% endblock %}

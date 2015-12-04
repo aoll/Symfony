@@ -1,0 +1,26 @@
+{# src/Fr/FrodnazaBundle/Resources/views/Souscategorie/edit.html.twig #}
+
+{% extends "FrForumBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ 'Edit a lower categorie'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block frforum_body %}
+
+  <h2>{{ 'Edit a lower categorie'|tran }}</h2>
+
+  {{ include("FrForumBundle:SousCategorie:form.html.twig") }}
+
+  <p>
+    {{ 'Edit a lower categorie'|trans }}
+  </p>
+
+  <p>
+    <a href="{{ path('fr_forum_sous_categorie_view', {'id': souscategorie.id}) }}" class="btn btn-default"> 
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      {{ 'Back'|tans }}
+    </a>
+  </p>
+
+{% endblock %}

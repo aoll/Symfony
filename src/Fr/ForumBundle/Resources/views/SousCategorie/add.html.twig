@@ -1,0 +1,22 @@
+{# src/Fr/ForumBundle/Resources/views/SousCategorie/add.html.twig #}
+
+
+
+{% extends "FrForumBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ 'Add a lower categorie'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block frforum_body %}
+
+  <h2>{{ 'Add a lower categorie'|trans }}</h2>
+  
+
+  {{ include("FrForumBundle:SousCategorie:form.html.twig") }}
+
+  <p>
+    {{ 'You add a lower categorie'|trans }}
+  </p>
+
+{% endblock %}

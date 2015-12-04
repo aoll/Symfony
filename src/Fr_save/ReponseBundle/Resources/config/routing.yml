@@ -1,0 +1,15 @@
+fr_reponse_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: FrReponseBundle:Default:index }
+
+fr_reponse_user_add_reponse:
+    path:	/user_add_reponse/{id}
+    defaults:	{ _controller: FrReponseBundle:Reponse:user_add_reponse }
+    requirements:
+        id: \d+
+
+fr_reponse_admin_add_reponse:
+    path:	/user_admin_reponse/{id}
+    defaults:	{ _controller: FrReponseBundle:Reponse:admin_add_reponse }
+    requirements:
+        id: \d+

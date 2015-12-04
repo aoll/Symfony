@@ -1,0 +1,115 @@
+# src/Fr/ForumBundle/Resources/config/routing.yml
+
+fr_forum_toto:
+    path:		/toto
+    defaults:	{ _controller: FrForumBundle:Categorie:toto }
+
+fr_forum_home:
+    path:		/
+    defaults:	{ _controller: FrForumBundle:Categorie:index }
+
+fr_forum_categorie_view:
+    path:		/categorie/{id}
+    defaults:	{ _controller: FrForumBundle:Categorie:view }
+    requirements:
+        id: \d+
+
+fr_forum_categorie_add:
+    path:		/categorie_add
+    defaults:	{ _controller: FrForumBundle:Categorie:add }
+
+fr_forum_categorie_edit:
+    path:		/categorie_edit/{id}
+    defaults:	{ _controller: FrForumBundle:Categorie:edit }
+    requirements:
+        id: \d+
+
+fr_forum_categorie_delete:
+    path:		/categorie_delete/{id}
+    defaults:	{ _controller: FrForumBundle:Categorie:delete }
+    requirements:
+        id: \d+
+
+fr_forum_sous_categorie_view:
+    path:		/sous_categorie/{id}
+    defaults:	{ _controller: FrForumBundle:SousCategorie:view }
+    requirements:
+        id: \d+
+
+fr_forum_sous_categorie_add:
+    path:		/sous_categorie_add/{id}
+    defaults:	{ _controller: FrForumBundle:SousCategorie:add }
+    requirements:
+        id: \d+
+
+fr_forum_sous_categorie_edit:
+    path:		/sous_categorie_edit/{id}
+    defaults:	{ _controller: FrForumBundle:SousCategorie:edit }
+    requirements:
+        id: \d+
+
+fr_forum_sous_categorie_delete:
+    path:		/sous_categorie_delete/{id}
+    defaults:	{ _controller: FrForumBundle:SousCategorie:delete }
+    requirements:
+        id: \d+
+
+fr_forum_sous_categorie_view:
+    path:		/sous_categorie/{id}
+    defaults:	{ _controller: FrForumBundle:SousCategorie:view }
+    requirements:
+        id: \d+
+
+fr_forum_threads_add_in_categorie:
+    path:		/threads_add_in_categorie/{id}
+    defaults:	{ _controller: FrForumBundle:Threads:add_in_categorie }
+    requirements:
+        id: \d+
+
+fr_forum_threads_add:
+    path:		/threads_add/{id}
+    defaults:	{ _controller: FrForumBundle:Threads:add }
+    requirements:
+        id: \d+
+
+fr_forum_threads_edit:
+    path:		/threads_edit/{id}
+    defaults:	{ _controller: FrForumBundle:Threads:edit }
+    requirements:
+        id: \d+
+
+fr_forum_threads_delete:
+    path:		/threads_delete/{id}
+    defaults:	{ _controller: FrForumBundle:Threads:delete }
+    requirements:
+        id: \d+
+
+fr_forum_threads_view:
+    path:		/threads/{id}
+    defaults:	{ _controller: FrForumBundle:Threads:view }
+    requirements:
+        id: \d+
+
+fr_forum_answer_add:
+    path:		/answer_add/{id}
+    defaults:	{ _controller: FrForumBundle:Answer:add }
+    requirements:
+        id: \d+
+
+fr_forum_answer_delete:
+    path:		/answer_delete/{id}
+    defaults:	{ _controller: FrForumBundle:Answer:delete }
+    requirements:
+        id: \d+
+
+fr_forum_commentaire_add:
+    path:		/commentaire_add/{id}
+    defaults:	{ _controller: FrForumBundle:Commentaire:add }
+    requirements:
+        id: \d+
+
+fr_forum_commentaire_delete:
+    path:		/commentaire_delete/{id}
+    defaults:	{ _controller: FrForumBundle:Commentaire:delete }
+    requirements:
+        id: \d+

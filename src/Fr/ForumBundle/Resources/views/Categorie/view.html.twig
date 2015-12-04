@@ -1,0 +1,79 @@
+{# src/Fr/ForumBundle/Resources/view/Categorie/view.html.twig #}
+
+
+
+{% extends "FrForumBundle::layout.html.twig" %}
+
+{% block title %}
+  Categorie - {{ parent() }}
+{% endblock %}
+
+{% block frforum_body %}
+
+
+<div class="well">
+<h2>{{ tab.categorie.title }}</h2>
+  <i>{{ 'By'|trans}} {{ tab.categorie.author }}, {{ tab.categorie.date|date('d/m/Y') }}</i>
+</div>
+
+<p></p>
+<div class="row">
+
+<div class="col-sm-4">
+{% for souscategorie in tab.souscategorie %}
+
+<p> 
+<a href="{{ path('fr_forum_sous_categorie_view', {'id': souscategorie.id}) }}">{{ souscategorie.title }}</a> 
+</p>
+
+ {% endfor %}
+</div>
+
+<div class="col-sm-4">
+threads:
+
+{% for threads in tab.threads %}
+
+ <p>
+<a href="{{ path('fr_forum_threads_view', {'id': threads.id}) }}">{{ threads.title }}</a> 
+</p>
+
+ {% endfor %}
+</div>
+</div>
+
+
+  
+
+  <p>
+    <a href="{{ path('fr_forum_home') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      {{ 'Back'|trans }}
+    </a>
+
+    <a href="{{ path('fr_forum_threads_add_in_categorie', {'id': tab.categorie.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      {{ 'Add a threads'|trans }}
+    </a>
+  </p>
+
+  {% if is_granted('ROLE_ADMIN') %}
+  <p>
+    <a href="{{ path('fr_forum_sous_categorie_add', {'id': tab.categorie.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      {{ 'Add a lower categorie'|trans }}
+    </a>
+
+
+    <a href="{{ path('fr_forum_categorie_edit', {'id': tab.categorie.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      {{ 'Edit a categorie'|trans }}
+    </a>
+
+    <a href="{{ path('fr_forum_categorie_delete', {'id': tab.categorie.id}) }}" class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+      {{ 'Delete a categorie'|trans }}
+    </a>
+  </p>
+  {% endif %}
+{% endblock %}

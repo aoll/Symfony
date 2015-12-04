@@ -1,0 +1,11 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block frprojet_body %}
+<p>{{ 'Password is set'|trans }}</p>
+<a href="{{ path('fr_projet_profile') }}"class="btn btn-default">
+<i class="glyphicon glyphicon-edit"></i>
+{{ 'back to the profile'|trans }}</a>
+
+{% endblock %}
+
+

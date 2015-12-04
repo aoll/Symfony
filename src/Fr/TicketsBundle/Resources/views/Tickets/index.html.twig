@@ -1,0 +1,11 @@
+{# src/Fr/TicketsBundle/Ressources/views/Tickets/index.html.twig #}
+
+{% extends "::layout.html.twig" %}
+
+{% block body %}
+<p><a href="{{ path('fr_tickets_new_tickets') }}">{{ 'New ticket'|trans }}</a></p>
+<p><a href="{{ path('fr_tickets_my_tickets') }}">{{ 'My open ticket'|trans }}</a></p>
+<p><a href="{{ path('fr_tickets_close_tickets') }}">{{ 'My close ticket'|trans }}</a></p>
+
+
+{% endblock %}

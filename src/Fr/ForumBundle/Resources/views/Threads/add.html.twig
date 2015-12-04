@@ -1,0 +1,22 @@
+{# src/Fr/ForumBundle/Resources/views/Threads/add.html.twig #}
+
+
+
+{% extends "FrForumBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ 'Add a threads'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block frforum_body %}
+
+  <h2>{{ 'Add a threads'|trans }}</h2>
+  
+
+  {{ include("FrForumBundle:Threads:form.html.twig") }}
+
+  <p>
+    {{ 'You add a threads'|trans }}
+  </p>
+
+{% endblock %}
